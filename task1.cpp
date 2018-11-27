@@ -8,10 +8,7 @@
 using namespace std;
 
 int main(int argc, char ** argv) {
-	
-
-
-		
+			
 	//Variables
 	string username, pwd, line;
 	ifstream if1;
@@ -36,12 +33,11 @@ int main(int argc, char ** argv) {
 	//close the file reading
 	if1.close();
 	
-	//get password from user
-	cout << "Enter password: ";
-	getline(cin, pwd);
-	
-	
 	if (isFound) { //username exists so logging in
+		
+		//get password from user
+		cout << "Enter password: ";
+		getline(cin, pwd);	
 		
 		if (pwd.compare(line.substr(line.find(" ") + 1)) == 0)
 			cout << "Password correct!" << endl;

@@ -54,7 +54,7 @@ int main(int argc, char ** argv) {
 	}
 	
 	//close writing to the file	
-	of1.close();
+	//of1.close();
 	
 	
 	

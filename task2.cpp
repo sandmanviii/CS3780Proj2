@@ -116,7 +116,10 @@ int main() {
 		rc = RAND_bytes(salt, sizeof(salt));
 		if (rc != 1)
 			cout << "Error generating random values\n";
-
+		
+		//make salt a printable character, ascii range of [33,126]
+		salt[0] = (salt[0] % 94 + 33);	
+		
 		//create new variable to hold pwd and salt appended to end
 		//has 1 more byte than pwd for salt
 		unsigned char pwdWithSalt[passwordSize + 1];

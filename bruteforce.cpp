@@ -7,6 +7,8 @@
 #include <cmath>
 #include <unistd.h>
 #include <cstdlib>
+#include <cstring>
+#include <algorithm>
 using namespace std;
 string crackPassword(string pass);
 long long int attempt;
@@ -26,13 +28,11 @@ bool findNode(Node *, string);
 void deleteTree(Node *);
 
 //Recursive function to generate strings until length is reached
-void generate(unsigned int len, string s) {
+void generate(int len, string s) {
 	string result;
-	
-	unsigned char temp[len];
-	for(int j = 0; j != sizeof(s); j++) {
-		temp[j] = s[j];
-	}
+	//character array to store current string
+	unsigned char *temp = new unsigned char[s.length() + 1];
+	sprintf((char *)temp, "%s", s.c_str());
 	result = hashFunction(temp);
 	if(len == 0){
 		if(findNode(head, result) == true) {
@@ -40,15 +40,7 @@ void generate(unsigned int len, string s) {
 			return;
 		}
 	}
-/*	if(len == 0) {
-		for (int i = 0; i < sizeof(hashes); i++) {
-			if(result == hashes[i]) {
-			       cout << "Match! " << result << " correlates to " << s << endl;
-			}
-		}
-		return;
-	}
-*/
+
 	for(int i = 0; i < 37; i++) {
 		string appended = s + alphaNum[i];
 		generate(len-1, appended);

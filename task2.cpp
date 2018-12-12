@@ -56,7 +56,7 @@ int main() {
 
 		//randomly determine password and username length
 		int passwordSize = rand() % (passwordLengthUB - passwordLengthLB + 1) + passwordLengthLB; 
-		int usernameSize = rand() % 8 + 1; 
+		int usernameSize = 8; 
 		
 		//to make process quicker, username is set to a max of 8 alphanumeric characters	
 		unsigned char username[usernameSize], pwd[passwordSize];
